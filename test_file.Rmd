@@ -111,32 +111,15 @@ there is a strong correlation between the year 2020 and 2009, 1958 and 1955.
 
 # get constituents of S&P 500
 ```{r}
-require("httr");require("dplyr");require("purrr")
+read.csv("/Users/carolinavillarreal/Desktop/TESIS/tesis/SPY ETF.csv", header = TRUE)
 ```
 
 ```{r}
-# ticker
-ticker = "SPY"
-# page url
-pg <- session(paste0("https://www.barchart.com/etfs-funds/quotes/",ticker,"/constituents"))
-# save page cookies
-cookies <- pg$response$cookies
-# Use a named character vector for unquote splicing with !!!
-token <- URLdecode(dplyr::recode("XSRF-TOKEN", !!!setNames(cookies$value, 
-                                                           cookies$name)))
+
 ```
 
 ```{r}
-# get data by passing in url and cookies
-pg <- 
-  pg %>% rvest:::request_GET(
-    paste0("https://www.barchart.com/proxies/core-api/v1/EtfConstituents?",
-           "composite=",ticker,"&fields=symbol%2CsymbolName%2Cpercent%2CsharesHeld%2C",
-           "symbolCode%2CsymbolType%2ClastPrice%2CdailyLastPrice&orderBy=percent",
-           "&orderDir=desc&meta=field.shortName%2Cfield.type%2Cfield.description&",
-           "page=1&limit=10000&raw=1"),
-    config = httr::add_headers(`x-xsrf-token` = token)
-  )
+
 ```
 
 ##############################################
@@ -218,5 +201,17 @@ TOP10 <- do.call(merge,df)
 
 charts.PerformanceSummary(TOP10, cex.legend=0.45, colorset=rich10equal, geometric = TRUE, main = "TOP10")
 table.Stats(TOP10)
+chart.RiskReturnScatter(TOP10, add.sharpe = c(1), Rf=(0.03/sqrt(252)),
+                        colorset = rich10equal, xlim = c(0.45,0.55), ylim = c(1.4,1.75))
+```
+
+```{r}
+AAA <- lapply(df,colSums)
+AAA[[which.max(AAA)]]
+EQT <- df[[which.max(AAA)]]
+
+charts.PerformanceSummary(EQT, geometric = TRUE)
+table.Stats(EQT)
+table.Drawdowns(EQT)
 ```
 
