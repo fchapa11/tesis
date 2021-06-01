@@ -9,22 +9,99 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+# find correlation of 2020 with other years
 
-```{r cars}
-summary(cars)
+find the performance of each index with past years and find a correlation by year. 
+
+
+
+
+```{r}
+require("Quandl"); require("quantmod")
 ```
 
-## Including Plots
+```{r}
+djia <- Quandl("BCB/UDJIAD1", type = "xts", api_key = "FPjAhV9-th9TV2zqqaxp")
 
-You can also embed plots, for example:
+djia2 <- getSymbols("^DJI", from="2016-01-01",to = "2020-12-31", auto.assign = FALSE)
+djia <- rbind(djia["::2015"], Cl(djia2))
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+# splitting the data by years
+
+byYr = split(djia, f="years")
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```{r}
+# calculate returns for the year
+
+byYrRet <- lapply(byYr, function(x) ROC(x, type="discrete"))
+
+# strip index, just leave year for reference
+
+byYrRet <- lapply(byYrRet, function(x){
+  x[is.na(x)] <- 0 
+  yr= as.data.frame(format(index(x), format="%Y"))
+  colnames(yr) = "Year"
+  dat = as.data.frame(coredata(x))
+  colnames(dat) = "data"
+  cbind(yr,dat)
+})
+```
+
+```{r}
+
+#plot all years against current year
+
+plot(cumsum(byYrRet[[2]]$data), type="l", ylim=c(-.8,.8))
+for(ii in 3:length(byYrRet))
+{
+  lines(cumsum(byYrRet[[ii]]$data))
+}
+lines(cumsum(byYrRet[[length(byYrRet)]]$data), col="green")
+```
+
+```{r}
+# find correlation
+
+THIS = cumsum(byYrRet[[length(byYrRet)]]$data)
+
+corr = lapply(as.list(2:length(byYrRet)), function(x){
+  YR = as.data.frame(unique(byYrRet[[x]]$Year))
+  VS = byYrRet[[x]]$data
+  VS = cumsum(VS[1:length(THIS)])
+  VS = as.data.frame(round(cor(VS, THIS), 4))
+  VS = cbind(YR, VS)
+  colnames(VS) = c("Year", "Correlation")
+    VS
+})
+
+corr = do.call(rbind, corr)
+```
+
+```{r}
+YRS0 = c(1980, 1898,1935)
+YRS = (YRS0 - 1886)+1
+
+i = YRS[1]
+cols = c("blue", "black", "grey", "green")
+plot(cumsum(byYrRet[[i]]$data), type="l", ylim=c(-.4,.4),
+     ylab="Return", xlab="Days", col=cols[1])
+for(ii in 2:length(YRS))
+{
+  loc = YRS[ii]
+  lines(cumsum(byYrRet[[loc]]$data), col=cols[ii])
+}
+lines(THIS, col=cols[length(cols)])
+legend("bottomright",
+       legend=c(YRS0,2020),
+       bty = "n",
+       col = cols,
+       pch = 2,
+       pt.cex = 1,
+       cex = 0.45,
+       horiz = TRUE,
+       text.col = "black")
+```
+
