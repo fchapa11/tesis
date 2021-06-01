@@ -19,7 +19,7 @@ find the performance of each index with past years and find a correlation by yea
 
 
 ```{r}
-require("Quandl"); require("quantmod")
+require("quantmod")
 ```
 
 ```{r}
@@ -103,5 +103,39 @@ legend("bottomright",
        cex = 0.45,
        horiz = TRUE,
        text.col = "black")
+```
+
+there is a strong correlation between the year 2020 and 2009, 1958 and 1955.
+
+###########################################################
+
+# get constituents of S&P 500
+```{r}
+require("httr");require("dplyr");require("purrr")
+```
+
+```{r}
+# ticker
+ticker = "SPY"
+# page url
+pg <- session(paste0("https://www.barchart.com/etfs-funds/quotes/",ticker,"/constituents"))
+# save page cookies
+cookies <- pg$response$cookies
+# Use a named character vector for unquote splicing with !!!
+token <- URLdecode(dplyr::recode("XSRF-TOKEN", !!!setNames(cookies$value, 
+                                                           cookies$name)))
+```
+
+```{r}
+# get data by passing in url and cookies
+pg <- 
+  pg %>% rvest:::request_GET(
+    paste0("https://www.barchart.com/proxies/core-api/v1/EtfConstituents?",
+           "composite=",ticker,"&fields=symbol%2CsymbolName%2Cpercent%2CsharesHeld%2C",
+           "symbolCode%2CsymbolType%2ClastPrice%2CdailyLastPrice&orderBy=percent",
+           "&orderDir=desc&meta=field.shortName%2Cfield.type%2Cfield.description&",
+           "page=1&limit=10000&raw=1"),
+    config = httr::add_headers(`x-xsrf-token` = token)
+  )
 ```
 
