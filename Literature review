@@ -1,19 +1,119 @@
 "Evaluating the Contribution of Asset Classes in the Risk Reduction of Financial Portfolios"
 
-#Background
+Asesor: Martín Carlos Lozano Banda
+By: Víctor Arnulfo González Campos #361401, Fernando Chapa Guzmán #363727, Montserrat González Cantú #364489, Carolina Villarreal Chaccourt #553071
 
+“But divide your investments among many places, for you do not know what risks might lie ahead.” (Ecclesiastes)
+
+#Background
+  In 1952, the Modern Portfolio Theory or MPT was introduced by Harry Markowitz and this served as the foundation for portfolio management for many years to come 
+because of what it brings to the finance industry. Using the proposed model, managers or investors are able to efficiently allocate their assets in such a way that,
+given a level of risk (return), the return (risk) is maximized (minimized) through portfolio diversification using historical market data, meaning that the 
+securities used to construct a portfolio will depend upon their average return (expected return) from previous data as well as the variance (risk) of said returns. 
+This allows economic agents to satisfy their needs depending on their profile as investors and thus maximizing their utility. 
+  The Modern Portfolio Theory seeks to reduce market risk as much as possible, it does not concern itself with specific or idiosyncratic risk because it will be 
+diversified away once a certain level of portfolio diversification is reached. In 1973, Jack Treynor and Fischer Black published “How to Use Security Analysis to 
+Improve Portfolio Selection”. In this article they argue that portfolios have two sources of risk: market and specific (appraisal) risks and it is not correct to 
+assume that optimal balancing implies having negligible levels of either. Optimal portfolios have two parts: a portfolio formed with specific securities that yield 
+independent returns (derived from specific risk) and certain exposure to market risk; and an approximation to the market portfolio; the first component is known as 
+the active portfolio and it is the focus of this article. Given that optimal selection in the active portfolio depends on the independent component of risk and 
+returns when the appraisal premium (the compensation for incurring specific risk) is zero, then the resulting portfolio will be an approximation of the market 
+portfolio. “Portfolio selection can be thought of as a three-stage process, in which the first stage is the selection of an active portfolio to maximize the 
+appraisal ratio, the second is blending the active portfolio with a suitable replica of the market portfolio to maximize the Sharpe ratio, and the third entails 
+scaling positions in the combined portfolio up or down through lending or borrowing while preserving their proportions” (Black & Treynor, 1973). 
+
+  Since the 90’s, Value-at-Risk (VaR) has been used to measure market risk in portfolios. In 1998 Banks started using proprietary VaR measures to calculate regulatory
+capital requirements. (Holton, G. 2002). The definition of VaR according to (Philippe, 2001) is that it is  “a measure of market risk. it’s the maximum loss which 
+can occur with x% confidence over a holding period of t days.”  VaR, is essentially an estimate of how much exposure an amount of cash has on a certain asset. 
+VaR cannot be the only reliability of a measure of risk because it is based on probabilities, with a reflection on a level of confidence selected by the investor 
+ahead of time. It is also stated that the greater the volatility, the higher the probability of loss. The development of VaR has the sole purpose of incorporating 
+covariances between risk factors to reflect hedging and diversification in a portfolio. Markowitz in 1952 identified the issues related to the subjectivity of 
+risk. Nevertheless only time will tell if the use of VaR contributes to the risk that it intends to measure.
+
+  The Post Modern Portfolio Theory (PMPT) has a more extensive application than the MPT, which includes the investor's expectations related to a minimum return rate 
+rather than the rate of average return. According to Geambasu, “The risk in the post-modern portfolio theory is considered as the possibility of return rates to be 
+situated beneath the minimum expected return; investors are preoccupied mostly to limit this kind of variation from their investment.” (Geambasu, 2010). 
+  The PMPT was developed with the intention of adapting the MPT to the market reality, which includes the minimum return rate that the investor accepts in the 
+measurement of risk. This theory does not include any restrictions in the data distribution, this means that the distribution can have any form. An important factor
+is that PMPT allows different models to be adequate to reality in portfolio management, in other words, investors have the power of representing an economic reality
+if applying this theory.
+  According to an investigation made by Geambasu, “The PMPT covers the lack of flexibility and adaptiveness of the MPT, by measuring the risk with consideration to 
+the investors requirements.” (Geambasu, 2010). It's important to say that comparing the MPT with the PMPT, we can  say that the PMPT is more flexible and there are 
+more risk measurement applications. The investors have a minimum expected return rate and a certain amount of risk they are willing to take, that is why PMPT 
+measures this risk with the economic reality in order to form portfolios that are adequate for the investor.
+
+  In 1986 Brison research stated that the asset allocation policy determines 90 percent of the portfolio performance and that the timing of the market fails to add 
+value to the portfolio creating fat tails and bad practices, and given a large historical equity risk premium the asset allocation policy was created in the 
+financial planning community. This policy believes that stocks are less risky than bonds in the long run, and that portfolio returns are mainly determined by this 
+policy and a random draw from a known distribution of asset class returns. 
+  The speculation that historical returns provide an acceptable basis for projecting asset class return is false, the reason being that many economic factors create
+an impact on the returns to be uncertain and ever-changing in the real world,  creating uncertainty in the investors on not meeting their financial objectives. 
+According to Markowitz, the historical returns are of little or not valuable in creating return expectations, standards deviations and correlations, he stated: 
+"When the past performance of securities are used as inputs the of securities are used as inputs, the outputs of the analysis are portfolios which performed 
+particularly well in the past. When beliefs of security analysts are used as inputs, the outputs of the analysis are the implications of these beliefs for better 
+or worse portfolios." (Markowitz, 1952).  
+  A list of researchers (Markowitz, Brinson, Jahnke), challenged the practice for concluding the historical equity risk premium on different grounds, including that
+it´s too relative to the variability of stock returns for investment horizons longer than a year. That the premium reflects an adjective of the market´s 
+price/earnings ratio, which is not expected to continue; other factors such as diminishing earnings growth due to excess capacity, global competition, allocation 
+of options, and under-funding of pension and medical benefits in society. Assuming that the historical risk premium is a bad practice whether or not it is adjusted
+in the price/earnings ratio. 
+  The uncertainty and financial stress has seen volatility across all the markets, mostly in the equity markets, high volatility is nothing new but there have been
+financial crises in periods such as; 1929, 1987, 1998, 2002 and 2008, that had a major impact in the markets.  
+  A high volatility period can be defined as a 12-month standard deviation above 5%, which occurred in all periods mentioned above; these peaks lasted for several 
+months. Such uncertainty and high volatility periods made the Chicago Board Options Exchange (CBOE) develop the first version of the Volatility Index, also known 
+as VIX, in 1993. With the objective to measure the stock market volatility. The index was calculated by taking the weighted average of implied volatility for calls 
+and puts from the S&P 100 Index (OEX).
+  In 2003 came the next revision, which gave a more accurate representation of the market volatility by using options on the S&P 500. This calculation is independent 
+of the theoretical pricing models, using the weighted prices of At The Money (ATM) and Out of The Money (OTM) puts and calls to analyse expected volatility.  
+“Although the VIX is often called the fear index, a high VIX isn't necessarily bearish for stocks. Instead, the VIX is a measure of fear of volatility in either 
+direction, including to the upside. High VIX readings mean investors see significant risk that the market will move sharply, whether downward or upward.” (Ruggiero Jr., M.A., 2008). 
+Basically, the high VIX readings happen when investors suppose massive moves in either direction, and the low VIX when investors assume neither significant 
+downside risk nor significant upside potential. Low VIX values are between 20 and 25, these values often occur when the market is uninterested, leading to a market
+selloff, values above 30 are known as bullish.
+
+  In 2016, Butler et al. proposed an allocation model that combines momentum with a minimum variance portfolio to trade a diverse array of global asset classes named,
+Adaptive Asset Allocation model. AAA is motivated by the consideration that investors often use long-term average asset returns and risks to establish optimal 
+portfolios, but the long term estimates are subject to large error in the intermediate term. The small errors in portfolios established using MPT can lead to large 
+errors, whereas AAA relies on a short-term rolling estimate of risk, diversification and returns that change throughout the observed time in response to the 
+changes in the markets and then delivers more resilient portfolios. Then, the portfolio is updated periodically, and it only holds onto the assets that are 
+expected to have the best performance based on momentum, followed by the selected weights of the selected assets are then computed as those that minimise the 
+volatility of the portfolio. Butler et. al proved in the paper that AAA markedly outperforms naïve diversification strategy in terms of both risk and return. 
+
+  In 2019, Florian Methling and Rudiger von Nitzsch published a paper called “Naive Diversification in thematic investing: heuristics for the core satellite investor”,
+where they discovered that a portfolio based in the naive diversification strategy with the development of stock based naive diversification has a sa result a 
+reduction in the volatility during a period of time. In this investigation, they created a portfolio where the 65.92% of the cases perceived less volatility, 
+which was reduced even more with the concentration based diversification.
+
+  In 2020, an alternative version of the Adaptive Asset Allocation model was developed by Mirko Bellu and Claudio Conversano and it is known as Protected Adaptive 
+Asset Allocation or PAAA. This alternative offers the investor additional protection during negative markets by introducing a cash protection feature; when an 
+asset shows unfavorable momentum it will be replaced by more liquid alternatives such as cash. The results of this method will be discussed in the literature 
+review section. 
+
+  Eom et.al. (2021) state that there are limitations regarding the portfolio diversification because, despite the increased number of stocks, agents are still 
+susceptible to extreme losses that occur during high volatility periods. Their findings suggest managers and investors increase their tail risk the more stocks 
+they include in their portfolio, casting doubts on the usefulness of modern portfolio theory. Through the analysis of the tails of return distributions, they 
+suggest that the left tail of said distributions increases with the number of stocks, while the right tail decreases; this effectively means that investors are 
+giving away potential extreme high returns and become more prone to extreme negative returns. “Portfolio diversification does not give a balanced trade-off 
+relationship between loss avoidance and profit sacrifice, contrary to the expectations of investors.” (Eom, Kaizoji, Livan & Scalas, 2021). The authors suggest the 
+use of safe haven assets to reduce the exposure to tail risk, as well as having control over the covariance and correlation matrices of the returns.
 
 #Research Problem
-
+  Nowadays, the traditional asset allocation theories such as the Modern Portfolio Theory do not generate portfolios that provide stability and performance under 
+high volatility periods, causing economic agents that invested in financial instruments to incur negative returns in the United States Stock Market. 
 
 #Hypothesis
-
+  By quantifying the contribution of five different asset classes and using the Protected Adaptive Asset Allocation model, it will be possible to create a portfolio 
+that has less exposure to downside risk in comparison with an equally weighted portfolio and a Mean-Variance MPT portfolio. 
 
 #General Objective
-
+  To construct an automated portfolio that improves upon the MPT by having lower tail risk using PAAA and five different asset classes in order to offer reduced 
+drawdowns under high volatility periods and deliver more consistent and predictable returns. 
 
 #Specific Objectives
-
+1. To evaluate the financial instruments from each asset class and select the highest performing ones based on financial analysis. 
+2. To estimate VaR and Expected Shortfall using EWMA models when including each individual instrument from the different asset classes. 
+3. To quantify the portfolio performance given the addition of each asset class. 
+4. To test the proposed portfolio under turbulent market conditions and compare it with MPT and equally weighted portfolios. 
 
 #Literature Review
 
@@ -24,10 +124,23 @@
 
 
 #Contribution
+  Through this research, the role of the different asset classes in an investment portfolio will be evaluated and the risk will be managed to improve the optimal 
+portfolio allocation to maximize returns and help investors protect their wealth during an economic crisis.
 
+#Scope
+  In this research, we will be analyzing the performance of five asset classes using its principal index and a time frame from 2000 to 2020. 
+The assets chosen are: Stocks, Commodities, Currencies, Bonds and Real Estate; and the corresponding indexes for each asset class are:
+1. S&P 500 Index (Stocks): One of the most important indexes from the United States and it is considered the most representative index of the real market situation.
+2. DJCI (Commodities): tracks a range of 28 different commodity futures contracts. 
+3. DXY Index (Currencies): measures the value of the United States dollar relative to a group of foreign currencies.
+4. DJCBP Index (Bonds): tracks the total market return of high quality bonds of companies from the United States.
+5. DJUSRE Index (Real Estate): tracks the performance of the United States real estate investment.
 
 #Epistemological Position
-
+  Epistemology can be branded as the study of the criteria by which the researcher classifies what does and does not constitute the knowledge. (Hallebone, E. & Priest, J. 2009)
+  There are several types of epistemological positions including pragmatism, realism, realism, interpretivism, constructivism, and positivism. (Feast et.al, 2010)
+  Our research will be conducted under the positivism position, that is only observable phenomena that can provide credible data, facts that are focused on 
+causality and law-like generalisations, reducing phenomena to simplest elements. 
 
 #Methodology
 ##Method
