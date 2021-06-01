@@ -1,8 +1,8 @@
 ---
-title: "Untitled"
-author: "Carolina Villarreal"
+title: "Tesis"
+author: "Carolina Villarreal, Montserrat Gonzalez, Victor Gonzalez, Fernando Chapa"
 date: "5/31/2021"
-output: html_document
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
