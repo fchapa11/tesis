@@ -23,14 +23,14 @@ require("Quandl"); require("quantmod")
 ```
 
 ```{r}
-djia <- Quandl("BCB/UDJIAD1", type = "xts", api_key = "FPjAhV9-th9TV2zqqaxp")
 
-djia2 <- getSymbols("^DJI", from="2016-01-01",to = "2020-12-31", auto.assign = FALSE)
-djia <- rbind(djia["::2015"], Cl(djia2))
+
+sp500 <- getSymbols("^GSPC", from="1928-01-01",to = "2020-12-31", auto.assign = FALSE)
+
 
 # splitting the data by years
 
-byYr = split(djia, f="years")
+byYr = split(sp500, f="years")
 ```
 
 ```{r}
@@ -81,8 +81,8 @@ corr = do.call(rbind, corr)
 ```
 
 ```{r}
-YRS0 = c(1980, 1898,1935)
-YRS = (YRS0 - 1886)+1
+YRS0 = c(2009, 1958,1955)
+YRS = (YRS0 - 1928)+1
 
 i = YRS[1]
 cols = c("blue", "black", "grey", "green")
